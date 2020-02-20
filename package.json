@@ -2,18 +2,21 @@
   "name": "wetube",
   "version": "1.0.0",
   "description": "Cloning Youtube Vanilla and NodeJS",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CoodingPenguin/youtube-clone.git"
-  },
   "author": "CoodingPenguin",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CoodingPenguin/youtube-clone/issues"
-  },
-  "homepage": "https://github.com/CoodingPenguin/youtube-clone#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "morgan": "^1.9.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js --delay 2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
