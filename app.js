@@ -10,12 +10,15 @@ import routes from "./routes";
 
 const app = express();
 
+// pug
+app.set("view engine", "pug");
+
 // middlewares
-app.use(cookieParser());
-app.use(bodyParser.json());
+app.use(cookieParser()); // about cookies
+app.use(bodyParser.json()); // form or json for delivery
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet());
-app.use(morgan("dev"));
+app.use(helmet()); // for security
+app.use(morgan("dev")); // for dev to see logs
 
 // routers
 app.use(routes.home, globalRouter);
