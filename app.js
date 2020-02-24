@@ -3,22 +3,26 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import { localMiddleware } from "./middlewares";
+import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-import routes from "./routes";
 
 const app = express();
 
 // pug
 app.set("view engine", "pug");
 
-// middlewares
+// middlewares : use it up to bottom
+app.use(helmet()); // for security
 app.use(cookieParser()); // about cookies
 app.use(bodyParser.json()); // form or json for delivery
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet()); // for security
 app.use(morgan("dev")); // for dev to see logs
+
+// custom middlewares
+app.use(localMiddleware);
 
 // routers
 app.use(routes.home, globalRouter);
