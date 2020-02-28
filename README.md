@@ -13,8 +13,8 @@ Node JS, Express JS, Mongo DB, Webpack, AJAX로 유튜브 클론
 - [x] Login
 - [x] Search
 - [ ] User Detail
-- [ ] Edit Profile
-- [ ] Change Password
-- [ ] Upload 
+- [x] Edit Profile
+- [x] Change Password
+- [x] Upload 
 - [ ] Video Detail
-- [ ] Edit Video
+- [x] Edit Video
