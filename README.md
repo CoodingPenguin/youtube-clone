@@ -4,28 +4,17 @@ Node JS, Express JS, Mongo DB, Webpack, AJAX로 유튜브 클론
 
 ## 1. TECH
 
-#### BACKEND
-
-`MongoDB`, `NodeJS`, `ES6`, `AWS`, `Heroku`
-
-#### FRONTEND
-
-`VanillaJS`, `SCSS`, `ES6`, `WebPack`, `Pug`
+* 백엔드 : `MongoDB`, `NodeJS`, `ES6`, `AWS`, `Heroku`
+* 프론트엔드 : `VanillaJS`, `SCSS`, `ES6`, `WebPack`, `Pug`
 
 ## 2. TODO
-
-- [ ] MVC
-- [ ] Routing
-- [ ] Templates
-- [ ] User Authentication
-- [ ] Facebook Login
-- [ ] Github Login
-- [ ] Video Upload
-- [ ] Video Recording
-- [ ] Search Video
-- [ ] AJAX Comments
-- [ ] View Registering
-- [ ] Video Recording with ES6
-- [ ] User Profile / Log in / Log Out
-- [ ] Database Models and Relationships
-- [ ] Deployment to Heroku
+- [ ] Home
+- [ ] Join
+- [ ] Login
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload 
+- [ ] Video Detail
+- [ ] Edit Video
