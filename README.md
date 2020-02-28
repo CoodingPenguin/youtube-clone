@@ -9,8 +9,8 @@ Node JS, Express JS, Mongo DB, Webpack, AJAX로 유튜브 클론
 
 ## 2. TODO
 - [ ] Home
-- [ ] Join
-- [ ] Login
+- [x] Join
+- [x] Login
 - [x] Search
 - [ ] User Detail
 - [ ] Edit Profile
