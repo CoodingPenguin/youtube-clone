@@ -7,8 +7,8 @@ const SEARCH = "/search";
 
 // users
 const USERS = "/users";
-const USER_DETAIL = "/:id";
-const EDIT_PROFILE = "/edit-profile";
+const USER_DETAIL = "/:id"; // only way to get info about url
+const EDIT_PROFILE = "/edit-profile"; // you can change id into anything ex. potato, whatever
 const CHANGE_PASSWORD = "/change-password";
 
 // videos
