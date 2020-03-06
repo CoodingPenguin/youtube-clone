@@ -1,10 +1,11 @@
 import routes from "../routes";
 import Video from "../models/Video";
 
+// home displaying all videos
 // async waits for video database finished(not succeeded) then rendering starts
 export const home = async (req, res) => {
   try {
-    const videos = await Video.find({});
+    const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
@@ -12,6 +13,7 @@ export const home = async (req, res) => {
   }
 };
 
+// search
 export const search = (req, res) => {
   const {
     query: { term: searchingBy }
@@ -19,6 +21,7 @@ export const search = (req, res) => {
   res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 
+// upload
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
 
@@ -37,6 +40,7 @@ export const postUpload = async (req, res) => {
   res.redirect(routes.videoDetail(newVideo.id));
 };
 
+// show the video's detail
 export const videoDetail = async (req, res) => {
   const {
     params: { id }
@@ -50,6 +54,7 @@ export const videoDetail = async (req, res) => {
   }
 };
 
+// edit video's info
 export const getEditVideo = async (req, res) => {
   const {
     params: { id }
@@ -75,6 +80,7 @@ export const postEditVideo = async (req, res) => {
   }
 };
 
+// delete video
 export const deleteVideo = async (req, res) => {
   const {
     params: { id }
