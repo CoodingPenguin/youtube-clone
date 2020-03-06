@@ -14,6 +14,8 @@ const app = express();
 // pug
 app.set("view engine", "pug");
 
+app.use("/uploads", express.static("uploads"));
+
 // middlewares : use it up to bottom
 app.use(helmet()); // for security
 app.use(cookieParser()); // about cookies
