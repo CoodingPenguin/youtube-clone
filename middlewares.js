@@ -1,4 +1,7 @@
+import multer from "multer";
 import routes from "./routes";
+
+const multerVideo = multer({ dest: "uploads/videos/" });
 
 // can add variables that you want to use globally
 export const localMiddleware = (req, res, next) => {
@@ -10,3 +13,5 @@ export const localMiddleware = (req, res, next) => {
   };
   next();
 };
+
+export const uploadVideo = multerVideo.single("videoFile");
