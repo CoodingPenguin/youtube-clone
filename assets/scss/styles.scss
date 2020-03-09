@@ -1,3 +1,5 @@
+@import "/config/_variables.scss";
+
 body {
-  background-color: purple;
+  background-color: $bgColor;
 }

@@ -1,4 +1,5 @@
 const path = require("path");
+const autoprefixer = require("autoprefixer");
 const ExtractCSS = require("extract-text-webpack-plugin");
 
 const MODE = process.env.WEBPACK_ENV;
@@ -13,14 +14,20 @@ const config = {
       {
         test: /\.(scss)$/,
         use: ExtractCSS.extract([
+          // 4. extract only css and make styles.css
           {
-            loader: "css-loader"
+            loader: "css-loader" // 3. compatible css -> css that webpack can use
           },
           {
-            loader: "postcss-loader"
+            loader: "postcss-loader", // 2. css -> compatible css
+            options: {
+              plugin() {
+                return [autoprefixer({ browsers: "cover 99.5%" })];
+              }
+            }
           },
           {
-            loader: "sass-loader"
+            loader: "sass-loader" // 1. sass -> css
           }
         ])
       }
@@ -28,8 +35,9 @@ const config = {
   },
   output: {
     path: OUTPUT_DIR,
-    filename: "[name].[format]"
-  }
+    filename: "[name].js"
+  },
+  plugins: [new ExtractCSS("styles.css")]
 };
 
 module.exports = config;
