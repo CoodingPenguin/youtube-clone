@@ -16,7 +16,7 @@ const config = {
         use: ExtractCSS.extract([
           // 4. extract only css and make styles.css
           {
-            loader: "css-loader" // 3. compatible css -> css that webpack can use
+            loader: "css-loader" // 3. compatible css -> load css
           },
           {
             loader: "postcss-loader", // 2. css -> compatible css
