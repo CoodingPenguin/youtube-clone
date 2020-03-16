@@ -38,6 +38,7 @@ export const postLogin = passport.authenticate("local", {
 
 export const githubLogin = passport.authenticate("github");
 
+// github
 // 사용하지 않는 파라미터는 _, __로 해놓음
 export const githubLoginCallback = async (_, __, profile, cb) => {
   const {
@@ -63,6 +64,20 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
 };
 
 export const postGithubLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
+// facebook
+export const facebookLogin = passport.authenticate("facebook");
+
+export const facebookLoginCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {};
+
+export const postFacebookLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
