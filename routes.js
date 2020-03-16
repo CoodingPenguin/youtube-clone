@@ -10,6 +10,7 @@ const USERS = "/users";
 const USER_DETAIL = "/:id"; // only way to get info about url
 const EDIT_PROFILE = "/edit-profile"; // you can change id into anything ex. potato, whatever
 const CHANGE_PASSWORD = "/change-password";
+const ME = "/me";
 
 // videos
 const VIDEOS = "/videos";
@@ -62,7 +63,8 @@ const routes = {
     }
   },
   github: GITHUB,
-  githubCallback: GITHUB_CALLBACK
+  githubCallback: GITHUB_CALLBACK,
+  me: ME
 };
 
 export default routes;
