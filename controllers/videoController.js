@@ -163,7 +163,7 @@ export const getDeleteComment = async (req, res) => {
     params: { id, cid },
     user
   } = req;
-  console.log(id, cid);
+  //console.log(id, cid);
   try {
     const comment = await Comment.findById(cid);
     const video = await Video.findById(id);
