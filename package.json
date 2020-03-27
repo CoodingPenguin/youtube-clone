@@ -54,7 +54,7 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "tunnel": "lt --port 4000",
-    "start": "PRODUCTION=true node build/init.js",
+    "start": "process.env.PRODUCTION=true node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
