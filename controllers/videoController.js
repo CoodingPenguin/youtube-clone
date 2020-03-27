@@ -1,6 +1,7 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import Comment from "../models/Comment";
+import User from "../models/User";
 
 // home displaying all videos
 // async waits for video database finished(not succeeded) then rendering starts
@@ -61,6 +62,8 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
+    //console.log(video.creator);
+    //console.log(video.comments[0]);
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (error) {
     console.log(error);
@@ -139,14 +142,43 @@ export const postAddComment = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
+    const myUser = await User.findById(user.id);
     const newComment = await Comment.create({
       text: comment,
       creator: user.id
     });
     video.comments.push(newComment.id);
+    myUser.comments.push(newComment.id);
     video.save();
+    myUser.save();
   } catch (error) {
     res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+export const getDeleteComment = async (req, res) => {
+  const {
+    params: { id, cid },
+    user
+  } = req;
+  console.log(id, cid);
+  try {
+    const comment = await Comment.findById(cid);
+    const video = await Video.findById(id);
+    const myUser = await User.findById(user.id);
+    if (String(comment.creator) !== String(user.id)) {
+      throw Error();
+    } else {
+      await Comment.findOneAndRemove({ _id: comment.id });
+      video.comments.remove(comment.id);
+      myUser.comments.remove(comment.id);
+      video.save();
+      myUser.save();
+    }
+  } catch (error) {
+    res.send(400);
   } finally {
     res.end();
   }
